@@ -1,0 +1,2 @@
+# PedestrianDetection_playground
+Andrew Ng的deep learning specialization系列-從底層刻一個陽春Pedestrian Detection
