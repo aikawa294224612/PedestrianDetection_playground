@@ -14,7 +14,7 @@ Andrew Ng的deep learning specialization系列-從底層刻一個陽春Pedestria
 ![Imgur](https://i.imgur.com/bV9uG2l.png)
 
 #### training過程
-![Imgur](https://i.imgur.com/WjtIpR7.jpg)
+![Imgur](https://i.imgur.com/4tZRcrl.jpg)
 
 #### 困點 (v1.0版)
 1. 連續的BBox要判斷都是同一個人，雖然已做限制，但是沒有辦法判斷是同一個人
