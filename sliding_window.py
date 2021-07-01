@@ -45,10 +45,7 @@ for ht in range(h_times):
 
         if predict_max == 1:
             if last_list.count(1) == 2:
-                before = (t, ht)
-                after = (t + w, ht + h)
-                rec_list_before.append(before)
-                rec_list_after.append(after)
+                rec_list_before, rec_list_after = func.addtolist(t, ht, w, h, rec_list_before, rec_list_after)
             last_list.append(1)
             last_list.pop(0)
         else:
