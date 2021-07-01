@@ -7,7 +7,7 @@ import numpy as np
 import cv2
 import link
 
-THRESHOLD = 0.99
+THRESHOLD = 0.95
 
 def tofloat(data):
     return data.astype('float32')
@@ -103,6 +103,18 @@ def testimage(iread, model):
     return high_cof
 
 
+def testimage_max(iread, model):
+    image = cv2.cvtColor(iread, cv2.COLOR_BGR2RGB)
+    image = tofloat(image)
+    image = cv2.resize(image, (36, 18))
+    img_resize = np.reshape(image, (1, 36, 18, 3))
+
+    predictions = model.predict(img_resize)
+    print(predictions)
+    high_cof = np.argmax(predictions, axis=1)
+    return high_cof
+
+
 def writeandread(sub, path):
     cv2.imwrite(path, sub)
     image = imread(path)
@@ -111,3 +123,11 @@ def writeandread(sub, path):
 
 def getmodel(type):
     return link.choose_model if type == 1 else link.model_save
+
+
+def addtolist(x, y, w, h, rec_list_before, rec_list_after):
+    before = (x, y)
+    after = (x + w, y + h)
+    rec_list_before.append(before)
+    rec_list_after.append(after)
+    return rec_list_before, rec_list_after
